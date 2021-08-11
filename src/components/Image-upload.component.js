@@ -1,28 +1,47 @@
-import react, { useState } from 'react'
+import { useState } from 'react';
+import {DropzoneDialog} from 'material-ui-dropzone';
+import Button from '@material-ui/core/Button'
 
-const ImageUploadComponent = () => {
-    const [currentFile, setCurrentFile] = useState(undefined);
-    const [previewFile, setPreviewFile] = useState(undefined);
-    const [progress, setProgress] = useState(0);
-    const [message, setMessage] = useState("");
-    const [imageInfos, setImageInfos] = useState([]);
+const acceptableFiles = ['image/jpeg', 'image/png', 'image/bmp'];
 
-    const selectFile = (event) => {
-        console.log(event.target.files[0]);
-        setProgress(0);
-        setMessage("");
-        setCurrentFile(event.target.files[0]);
-        setPreviewFile(URL.createObjectURL(event.target.files[0]))
+const ImageUploadComponent = (props) => {
+
+    const [open, setOpen] = useState(false);
+    const [files, setFiles] = useState([]);
+
+    function handleClose(){
+        setOpen(false);
     }
 
-    const uploadFile = (event) => {
-        console.log(event.target.files[0])
+
+    function handleSaveFile(files){
+        setFiles(files);
+        setOpen(false);
     }
 
+    function handleOpen(){
+        setOpen(true);
+    }
 
     return(
         <div>
-            <p>Image Upload</p>
+            <Button
+                variant="contained"
+                color="primary"
+                onClick = {() => handleOpen()} 
+            >
+                Add Image
+            </Button>
+            <DropzoneDialog 
+                open = {open}
+                onSave = {handleSaveFile}
+                acceptedFiles = {acceptableFiles}
+                maxFileSize = {50000000}
+                onClose = {handleClose}
+
+                showPreviews = {true}
+                showFileNamesInPreview = {true}
+            />
         </div>
     )
 }
