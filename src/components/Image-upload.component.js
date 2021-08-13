@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {DropzoneDialog} from 'material-ui-dropzone';
+import { DropzoneDialog } from 'material-ui-dropzone';
 import Button from '@material-ui/core/Button'
 
 const acceptableFiles = ['image/jpeg', 'image/png', 'image/bmp'];
