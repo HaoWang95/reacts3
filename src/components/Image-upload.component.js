@@ -1,6 +1,15 @@
 import { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { DropzoneDialog } from 'material-ui-dropzone';
 import Button from '@material-ui/core/Button'
+
+const useStyles = makeStyles({
+    root: {
+        width: '100%',
+        maxWidth: 500,
+    }
+})
+
 
 const acceptableFiles = ['image/jpeg', 'image/png', 'image/bmp'];
 
@@ -8,6 +17,7 @@ const ImageUploadComponent = (props) => {
 
     const [open, setOpen] = useState(false);
     const [files, setFiles] = useState([]);
+    const style = useStyles();
 
     function handleClose(){
         setOpen(false);
@@ -24,7 +34,7 @@ const ImageUploadComponent = (props) => {
     }
 
     return(
-        <div>
+        <div className={style.root}>
             <Button
                 variant="contained"
                 color="primary"
