@@ -10,8 +10,8 @@ const appDefaultTheme = createTheme({
       dark: teal[650],
     },
     secondary: {
-      main: orange[500]
-    }
+      main: orange[500],
+    },
   },
 });
 
@@ -19,7 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={appDefaultTheme}>
       <div className="App">
-        <AppBar isLoggedIn={false} />        
+        <AppBar isLoggedIn={false} />
       </div>
     </ThemeProvider>
   );
