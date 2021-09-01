@@ -19,7 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={appDefaultTheme}>
       <div className="App">
-        <AppBar isLoggedIn={false} />
+        <AppBar />
       </div>
     </ThemeProvider>
   );

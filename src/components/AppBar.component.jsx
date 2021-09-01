@@ -1,5 +1,11 @@
 import React from "react";
-import { AppBar, Menu, MenuItem, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  CssBaseline,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { Toolbar } from "@material-ui/core";
@@ -42,24 +48,28 @@ const DefaultAppBar = () => {
 
   const renderAccountMenu = (
     <Menu
-        anchorEl={accountMenu}
-        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
-        keepMounted
-        transformOrigin={{vertical: 'top', horizontal: 'right'}}
-        open={isAccountMenuOpen}
-        onClose={handleMenuClose}
+      anchorEl={accountMenu}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      keepMounted
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      open={isAccountMenuOpen}
+      onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Account profile</MenuItem>
-      <MenuItem 
-      onClick={(event) => {
-          setLoggedIn(prev => !prev);
-          handleMenuClose()
-          }}>Logout</MenuItem>
+      <MenuItem
+        onClick={(event) => {
+          setLoggedIn((prev) => !prev);
+          handleMenuClose();
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
   return (
     <div className={style.appBarRoot}>
+      <CssBaseline />
       <AppBar>
         <Toolbar>
           <IconButton edge="start" className={style.menuButton}>
