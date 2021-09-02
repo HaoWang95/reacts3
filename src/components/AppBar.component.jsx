@@ -29,7 +29,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import { useState } from "react";
 import SearchField from "./Search.component";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 const useAppBarStyle = makeStyles((theme) => ({
   appBarRoot: {
@@ -46,7 +46,7 @@ const useAppBarStyle = makeStyles((theme) => ({
   // define the shift action for the content
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
+    //marginLeft: drawerWidth,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -64,7 +64,7 @@ const useAppBarStyle = makeStyles((theme) => ({
     flexShrink: 0,
   },
   drawerPaper: {
-    wdith: drawerWidth,
+    width: drawerWidth,
   },
   drawerHeader: {
     display: "flex",
@@ -196,7 +196,7 @@ const DefaultAppBar = () => {
       {renderAccountMenu}
       <Drawer
         className={style.drawer}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
         open={drawerOpen}
         classes={{
