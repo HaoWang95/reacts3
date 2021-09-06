@@ -6,9 +6,9 @@ const DatePicker = () => {
 
   return (
     <React.Fragment>
-      <div>
+      <div data-testid="datepicker">
         <input type="date" onSelect={(e) => setDate(e.target.value)} />
-        <p>date: {date}</p>
+        <p>date: {date}!</p>
       </div>
     </React.Fragment>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import {render, unmountComponentAtNode} from 'react-dom'; // render function from react-dom
 import DatePicker from '../components/Date-picker.component';
 import SearchField from "../components/Search.component";
+import DefaultAppBar from "../components/AppBar.component";
 import { act } from 'react-dom/test-utils';
 import { 
   createRender 
@@ -32,12 +33,6 @@ it("Test <DatePicker /> component:", () => {
   expect(domContainer);
 });
 
-describe("Test the <DatePicker />:",() => {
-  test("Run and render <DatePicker />", () => {
-    let tree = create(<DatePicker />);
-    expect(tree.toJSON()).toMatchSnapshot();
-  })
-});
 
 describe("Test the basic search field <SearchField />", () => {
   test("Run and render <SearchField />", () => {
