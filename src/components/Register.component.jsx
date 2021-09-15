@@ -1,8 +1,5 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -12,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   paper: {
+    padding: 20,
+    width: 280,
     margin: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.primary,
@@ -22,8 +21,8 @@ export default function Register() {
   const style = useStyles();
   return (
     <Grid container spacing={3} className={style.root}>
-      <Paper className={style.paper} elevation={3}>
-        <FormControl>
+      <Paper className={style.paper}>
+        {/* <FormControl>
           <TextField
             label="Email"
             required
@@ -38,7 +37,7 @@ export default function Register() {
             color="secondary"
             spacing={3}
           />
-        </FormControl>
+        </FormControl> */}
       </Paper>
     </Grid>
   );

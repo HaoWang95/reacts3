@@ -3,8 +3,8 @@ import { red, blue, green } from "@material-ui/core/colors";
 import { AutoRotatingCarousel } from "material-auto-rotating-carousel";
 import Slide from "material-auto-rotating-carousel/lib/Slide";
 
+//This is not a pure ui component, add links and features later
 export default function CarouselComponent(props) {
-
   return (
     <div style={{ position: "relative", width: "100%", height: 500 }}>
       <AutoRotatingCarousel
