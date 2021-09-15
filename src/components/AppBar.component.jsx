@@ -27,11 +27,13 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import { useState } from "react";
 import SearchField from "./Search.component";
+import ThemeSwitch from "./ThemeSwitch.component";
 import Register from "./Register.component";
 
 const drawerWidth = 240;
 
 const useAppBarStyle = makeStyles((theme) => ({
+
   appBarRoot: {
     display: "flex",
     //flexGrow: 1,
@@ -104,9 +106,13 @@ const useAppBarStyle = makeStyles((theme) => ({
   },
 }));
 
-const DefaultAppBar = () => {
+const DefaultAppBar = (props) => {
+
   const style = useAppBarStyle();
   const sysTheme = useTheme();
+
+  // handle the state of dark mode
+  const [dark, setDark] = useState(false);
 
   // state management for appbar drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -132,6 +138,15 @@ const DefaultAppBar = () => {
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
+  };
+
+  const handleThemeSwitch = () => {
+    setDark((dark) => !dark);
+    if(dark === false){
+      sysTheme.palette.type = "light";
+    }else{
+      sysTheme.palette.type = "dark";
+    }
   };
 
   const renderAccountMenu = (
@@ -176,10 +191,12 @@ const DefaultAppBar = () => {
             Welcome
           </Typography>
           <SearchField />
+          {props.themeToggle}
           {!loggedIn ? (
             <Button color="inherit" onClick={() => setLoggedIn(true)}>
               Login
             </Button>
+
           ) : (
             <MenuItem>
               <IconButton
