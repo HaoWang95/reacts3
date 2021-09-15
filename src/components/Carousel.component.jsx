@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { red, blue, green } from "@material-ui/core/colors";
 import { AutoRotatingCarousel } from "material-auto-rotating-carousel";
 import Slide from "material-auto-rotating-carousel/lib/Slide";
 
-export default function CarouselComponent() {
-  const [open, setOpen] = useState(true);
-  const handleClose = () => {
-    setOpen(false);
-  };
+export default function CarouselComponent(props) {
 
   return (
     <div style={{ position: "relative", width: "100%", height: 500 }}>
       <AutoRotatingCarousel
         label="Get started"
-        open={open}
-        onClose={handleClose}
-        onStart={handleClose}
+        open={props.open}
+        onClose={props.handleClose}
+        onStart={props.handleClose}
         style={{ position: "absolute" }}
       >
         <Slide

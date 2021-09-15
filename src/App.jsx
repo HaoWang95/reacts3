@@ -2,6 +2,7 @@ import AppBar from "./components/AppBar.component";
 import CarouselComponent from "./components/Carousel.component";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { teal, orange } from "@material-ui/core/colors";
+import { useState } from "react";
 
 const appDefaultTheme = createTheme({
   palette: {
@@ -17,10 +18,20 @@ const appDefaultTheme = createTheme({
 });
 
 function App() {
+  const [carouselOpen, setCarouselOpen] = useState(true);
+  const handleCarouselClose = () => {
+    setCarouselOpen(false);
+  };
+
   return (
     <ThemeProvider theme={appDefaultTheme}>
       <div className="App">
-        <CarouselComponent />
+        {carouselOpen ? (
+          <CarouselComponent
+            open={carouselOpen}
+            handleClose={handleCarouselClose}
+          />
+        ) : null}
         <AppBar />
       </div>
     </ThemeProvider>
