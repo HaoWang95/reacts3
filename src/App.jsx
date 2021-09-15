@@ -1,4 +1,5 @@
 import AppBar from "./components/AppBar.component";
+import CarouselComponent from "./components/Carousel.component";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { teal, orange } from "@material-ui/core/colors";
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <ThemeProvider theme={appDefaultTheme}>
       <div className="App">
+        <CarouselComponent />
         <AppBar />
       </div>
     </ThemeProvider>

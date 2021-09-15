@@ -22,7 +22,7 @@ export default function Register() {
   const style = useStyles();
   return (
     <Grid container spacing={3} className={style.root}>
-      <Paper className={style.paper}>
+      <Paper className={style.paper} elevation={3}>
         <FormControl>
           <TextField
             label="Email"
