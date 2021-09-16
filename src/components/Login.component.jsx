@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   avatarStyle: {
     backgroundColor: theme.palette.primary.main,
     "&:hover": {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.light,
     },
   },
 }));
@@ -48,7 +48,7 @@ export default function Login() {
                 variant="outlined"
                 required
                 fullWidth
-                label="email"
+                label="Email"
                 autoComplete="email"
               />
             </Grid>
@@ -57,7 +57,7 @@ export default function Login() {
                 variant="outlined"
                 required
                 fullWidth
-                label="password"
+                label="Password"
               />
             </Grid>
             <Grid item xs={12}>
@@ -80,7 +80,11 @@ export default function Login() {
                   <Link variant="body2">Forgot password?</Link>
                 </Grid>
                 <Grid item xs={9}>
-                  <Link variant="body2">Don't have an account? Sign Up</Link>
+                  <Link 
+                    variant="body2"
+                  >
+                      Don't have an account? Sign Up
+                  </Link>
                 </Grid>
               </Grid>
             </Grid>
