@@ -8,29 +8,39 @@ import {
   Grid,
   TextField,
   Typography,
+  FormControlLabel,
+  Checkbox,
+  Button,
+  Link
 } from "@material-ui/core";
 import { LockOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    maxWidth: "xs",
-  },
   box: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar:{
-    backgroundColor:"secondary.main"
+    backgroundColor: theme.palette.primary.main,
+    '&:hover':{
+      backgroundColor: theme.palette.primary.light
+    }
+  },
+  textLabel:{
+    color: theme.palette.primary.main,
+    '&:hover':{
+      color: theme.palette.primary.light
+    }
   }
 }));
 
 export default function Register() {
   const style = useStyles();
   return (
-    <Container component="main" className={style.container}>
+    <Container component="main" maxWidth="xs">
       <Box className={style.box}>
-        <Avatar>
+        <Avatar className={style.avatar}>
           <LockOutlined />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -46,7 +56,7 @@ export default function Register() {
                 required
                 fullWidth
                 id="email"
-                label="Email"
+                label="Email   "
                 autoFocus
               />
             </Grid>
@@ -61,7 +71,41 @@ export default function Register() {
                 label="User Name"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                id="password"
+                autoComplete="new-password"
+                label="Password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControlLabel
+                className={style.textLabel}
+                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                label="I want to receive updates via email."
+              />
+            </Grid>
           </Grid>
+          <Button
+              type="submit"
+              fullWidth
+              variant="outlined"
+              color="primary"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
         </Box>
       </Box>
       <CopyRight />

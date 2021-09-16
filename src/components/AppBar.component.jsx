@@ -83,8 +83,9 @@ const useAppBarStyle = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    //marginLeft: drawerWidth / 2,
-    //marginRight: drawerWidth / 2,
+    marginTop: drawerWidth/4,
+    marginLeft: 0,
+    marginRight: drawerWidth,
   },
 
   contentShift: {
