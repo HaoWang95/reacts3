@@ -28,6 +28,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import { useState } from "react";
 import SearchField from "./Search.component";
 import Register from "./Register.component";
+import Login from "./Login.component";
 
 const drawerWidth = 240;
 
@@ -234,7 +235,8 @@ const DefaultAppBar = (props) => {
         })}
       >
         <div className={style.drawerHeader} />
-        <Register />
+        {/* <Register /> */}
+        <Login />
       </main>
     </div>
   );
