@@ -1,44 +1,70 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import CopyRight from "./Copyright.component";
+import {
+  Avatar,
+  Box,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from "@material-ui/core";
+import { LockOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  container: {
+    maxWidth: "xs",
   },
-
-  paper: {
-    padding: 20,
-    width: 280,
-    margin: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.primary,
+  box: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
+  avatar:{
+    backgroundColor:"secondary.main"
+  }
 }));
 
 export default function Register() {
   const style = useStyles();
   return (
-    <Grid container spacing={3} className={style.root}>
-      <Paper className={style.paper}>
-        {/* <FormControl>
-          <TextField
-            label="Email"
-            required
-            variant="outlined"
-            color="secondary"
-            spacing={3}
-          />
-          <TextField
-            label="Password"
-            required
-            variant="outlined"
-            color="secondary"
-            spacing={3}
-          />
-        </FormControl> */}
-      </Paper>
-    </Grid>
+    <Container component="main" className={style.container}>
+      <Box className={style.box}>
+        <Avatar>
+          <LockOutlined />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign Up
+        </Typography>
+        <Box component="form">
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                autoComplete="uname"
+                name="email"
+                required
+                fullWidth
+                id="email"
+                label="Email"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                autoComplete="uname"
+                name="username"
+                required
+                fullWidth
+                id="username"
+                label="User Name"
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+      <CopyRight />
+    </Container>
   );
 }

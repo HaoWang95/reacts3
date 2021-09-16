@@ -7,6 +7,7 @@ import ThemeSwitch from "./components/ThemeSwitch.component";
 
 function App() {
 
+  // Handle the theme toggle globally
   const [dark, setDark] = useState(false);
 
   const appDefaultTheme = createTheme({
@@ -35,6 +36,7 @@ function App() {
     setCarouselOpen(false);
   };
 
+  // pass down the ThemeSwitch component as a props
   const getThemeToggle = () => {
     return (<ThemeSwitch handleToggle={handleToggle} />);
   };
